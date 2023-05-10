@@ -74,19 +74,31 @@ namespace Yatzy_korrekt
             five,
             six
         }
-        public static void HowManyOfEachKind(List<Dice> dieces)
+        public static Dictionary<NumberOfDices, int> HowManyOfEachKind(List<Dice> dieces)
         {
-            var Dictionary = new Dictionary<NumberOfDices, int>
+            var DictOfDiceNum = new Dictionary<NumberOfDices, int>
             {
                 {NumberOfDices.one, HowManyOfAnyKind(dieces, 1) },
                 {NumberOfDices.two, HowManyOfAnyKind(dieces, 2) },
                 {NumberOfDices.three, HowManyOfAnyKind(dieces, 3) },
                 {NumberOfDices.four, HowManyOfAnyKind(dieces, 4) },
                 {NumberOfDices.five, HowManyOfAnyKind(dieces, 5) },
-                {NumberOfDices.six, HowManyOfAnyKind(dieces, 6) },
+                {NumberOfDices.six, HowManyOfAnyKind(dieces, 6) }
             };
+            return DictOfDiceNum;
         }
-        public static int HowManyOfAnyKind(List<Dice> dieces, int value)
+        public static bool HasFullHouse(List<Dice> dieces)
+        {
+            var FullHouse = HowManyOfEachKind(dieces);
+
+            if((FullHouse.Where(x => x.Value == 0).Count() == 4)
+                && (HasAnyFourOfAKind(dieces) == false))
+            {
+                return true;  
+            }
+            return false;
+        }
+        private static int HowManyOfAnyKind(List<Dice> dieces, int value)
         {
             return dieces.Where(x => x.tärningsnum == value).Count();
         }

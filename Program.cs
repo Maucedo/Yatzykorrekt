@@ -58,26 +58,31 @@ static List<int> TärningsRunda(Random random, List<Dice> tärningar, int slag)
     }
     else
     {
+        var DiceNumbers = Calculate.HowManyOfEachKind(tärningar);
+        foreach (var item in DiceNumbers)
+        {
+            Console.WriteLine($"{item.Key}: {item.Value}");
+        }
 
-        // Här vill vi visa hur många av varje vi har.
-        var ones = Calculate.HowManyOfAKind(tärningar, 1);
-        Console.WriteLine($"1: {ones}");
+        //// Här vill vi visa hur många av varje vi har.
+        //var ones = Calculate.HowManyOfAKind(tärningar, 1);
+        //Console.WriteLine($"1: {ones}");
        
 
-        var two = Calculate.HowManyOfAKind(tärningar, 2);
-        Console.WriteLine($"2: {two}");
+        //var two = Calculate.HowManyOfAKind(tärningar, 2);
+        //Console.WriteLine($"2: {two}");
 
-        var three = Calculate.HowManyOfAKind(tärningar, 3);
-        Console.WriteLine($"3: {three}");
+        //var three = Calculate.HowManyOfAKind(tärningar, 3);
+        //Console.WriteLine($"3: {three}");
 
-        var fours = Calculate.HowManyOfAKind(tärningar, 4);
-        Console.WriteLine($"4: {fours}");
+        //var fours = Calculate.HowManyOfAKind(tärningar, 4);
+        //Console.WriteLine($"4: {fours}");
 
-        var fives = Calculate.HowManyOfAKind(tärningar, 5);
-        Console.WriteLine($"5: {fives}");
+        //var fives = Calculate.HowManyOfAKind(tärningar, 5);
+        //Console.WriteLine($"5: {fives}");
 
-        var sixes = Calculate.HowManyOfAKind(tärningar, 6);
-        Console.WriteLine($"6: {sixes}");
+        //var sixes = Calculate.HowManyOfAKind(tärningar, 6);
+        //Console.WriteLine($"6: {sixes}");
 
         var onepair = Calculate.HasAnyOnePair(tärningar);
         Console.WriteLine($"Ett par: {onepair}");
@@ -91,6 +96,8 @@ static List<int> TärningsRunda(Random random, List<Dice> tärningar, int slag)
         var Yatzy = Calculate.HasAnyYatzy(tärningar);
         Console.WriteLine($"Yatzy: {Yatzy}");
 
+        var FullHouse = Calculate.HasFullHouse(tärningar);
+        Console.WriteLine($"Fullhouse: {FullHouse}");
         Console.ReadLine(); 
         
     }
