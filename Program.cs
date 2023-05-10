@@ -2,13 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Yatzy_korrekt;
 
 int slag = 0;
 var random = new Random();
-var tärningar = new List<Tärning>(5);
+var tärningar = new List<Dice>(5);
 for (int i = 0; i < tärningar.Capacity; i++)
 {
-    tärningar.Add(new Tärning(random.Next(1, 7)));
+    tärningar.Add(new Dice(random.Next(1, 7)));
 }
 
 
@@ -26,11 +27,12 @@ Console.ReadLine();
 tärnspara = TärningsRunda(random, tärningar, slag);
 
 
-static List<int> TärningsRunda(Random random, List<Tärning> tärningar, int slag)
+static List<int> TärningsRunda(Random random, List<Dice> tärningar, int slag)
 {
-    foreach (Tärning y in tärningar)
+    foreach (Dice y in tärningar)
     {
         Console.WriteLine(y.tärningsnum);
+        // detta gör något
     }
     List<int> tärnspara = new List<int>();
     Console.WriteLine();
@@ -77,14 +79,3 @@ static List<int> TärningsRunda(Random random, List<Tärning> tärningar, int sl
 }
     
 
-class Tärning
-{
-    public int tärningsnum;
-    public bool spara;
-
-    public Tärning(int tärningsnum, bool spara = false)
-    {
-        this.tärningsnum = tärningsnum;
-        this.spara = spara;
-    }
-}
