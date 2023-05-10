@@ -54,26 +54,32 @@ static List<int> TärningsRunda(Random random, List<Dice> tärningar, int slag)
 
             t.spara = false;
         }
+
     }
     else
     {
-        var lista1 = new int[5];
-        foreach (var värde in tärningar)
-        {
-            for (int i = 0; i < tärningar.Count; i++)
-            {
-                if (lista1.Contains(tärningar[i].tärningsnum))
-                {
-                    continue;
-                }
-                else
-                {
-                    lista1[i] = värde.tärningsnum;
-                }
-            }
-        }
-        var t = lista1;
-        var f = tärningar;
+
+        // Här vill vi visa hur många av varje vi har.
+        var ones = Calculate.HowManyOfAKind(tärningar, 1);
+        Console.WriteLine($"1: {ones}");
+       
+
+        var two = Calculate.HowManyOfAKind(tärningar, 2);
+        Console.WriteLine($"2: {two}");
+
+        var three = Calculate.HowManyOfAKind(tärningar, 3);
+        Console.WriteLine($"3: {three}");
+
+        var fours = Calculate.HowManyOfAKind(tärningar, 4);
+        Console.WriteLine($"4: {fours}");
+
+        var fives = Calculate.HowManyOfAKind(tärningar, 5);
+        Console.WriteLine($"5: {fives}");
+
+        var sixes = Calculate.HowManyOfAKind(tärningar, 6);
+        Console.WriteLine($"6: {sixes}");
+        Console.ReadLine(); 
+        
     }
     return tärnspara;
 }
