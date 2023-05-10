@@ -65,5 +65,30 @@ namespace Yatzy_korrekt
                 || HasYatzy(dices, 6);
         }
 
+       public enum NumberOfDices
+        {
+            one,
+            two,
+            three,
+            four,
+            five,
+            six
+        }
+        public static void HowManyOfEachKind(List<Dice> dieces)
+        {
+            var Dictionary = new Dictionary<NumberOfDices, int>
+            {
+                {NumberOfDices.one, HowManyOfAnyKind(dieces, 1) },
+                {NumberOfDices.two, HowManyOfAnyKind(dieces, 2) },
+                {NumberOfDices.three, HowManyOfAnyKind(dieces, 3) },
+                {NumberOfDices.four, HowManyOfAnyKind(dieces, 4) },
+                {NumberOfDices.five, HowManyOfAnyKind(dieces, 5) },
+                {NumberOfDices.six, HowManyOfAnyKind(dieces, 6) },
+            };
+        }
+        public static int HowManyOfAnyKind(List<Dice> dieces, int value)
+        {
+            return dieces.Where(x => x.tärningsnum == value).Count();
+        }
     }
 }
