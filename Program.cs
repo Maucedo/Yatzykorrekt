@@ -78,6 +78,19 @@ static List<int> TärningsRunda(Random random, List<Dice> tärningar, int slag)
 
         var sixes = Calculate.HowManyOfAKind(tärningar, 6);
         Console.WriteLine($"6: {sixes}");
+
+        var onepair = Calculate.HasAnyOnePair(tärningar);
+        Console.WriteLine($"Ett par: {onepair}");
+
+        var ThreeOfAKind = Calculate.HasAnyThreeOfAKind(tärningar);
+        Console.WriteLine($"Triss: {ThreeOfAKind}");
+
+        var FourOfAKind = Calculate.HasAnyFourOfAKind(tärningar);
+        Console.WriteLine($"Fyrtal: {FourOfAKind}");
+
+        var Yatzy = Calculate.HasAnyYatzy(tärningar);
+        Console.WriteLine($"Yatzy: {Yatzy}");
+
         Console.ReadLine(); 
         
     }
