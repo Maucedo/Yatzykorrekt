@@ -120,5 +120,21 @@ namespace Yatzy_korrekt
             }
             return false;
         }
+        public static bool HasTwoPairs(List<Dice> dieces)
+        {
+            var värden = dieces.GroupBy(x => x.tärningsnum)
+                .Select(group => new
+                {
+                    Value = group.Key,
+                    Count = group.Count()
+                })
+                .OrderByDescending(x => x.Count);
+            if (värden.ElementAt(1).Count == 2) 
+            {
+                return true;
+            }
+            return false;
+        } 
+        
     }
 }
