@@ -102,5 +102,23 @@ namespace Yatzy_korrekt
         {
             return dieces.Where(x => x.tärningsnum == value).Count();
         }
+        public static bool HasBigLadder(List<Dice> dieces)
+        {
+            var BigLadder = HowManyOfEachKind(dieces);
+            if ((BigLadder.Where(x => x.Value == 0).Count() == 1) && HowManyOfAnyKind(dieces, 1) == 0) 
+            {
+                    return true;
+            }
+            return false;
+        }
+        public static bool HasSmallLadder(List<Dice> dieces)
+        {
+            var SmallLadder = HowManyOfEachKind(dieces);
+            if ((SmallLadder.Where(x => x.Value == 0).Count() == 1) && HowManyOfAnyKind(dieces, 6) == 0)
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

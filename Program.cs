@@ -98,6 +98,13 @@ static List<int> TärningsRunda(Random random, List<Dice> tärningar, int slag)
 
         var FullHouse = Calculate.HasFullHouse(tärningar);
         Console.WriteLine($"Fullhouse: {FullHouse}");
+
+        var TinyLadder = Calculate.HasSmallLadder(tärningar);
+        Console.WriteLine($"Small Ladder: {TinyLadder}");
+
+        var BigLadder = Calculate.HasBigLadder(tärningar);
+        Console.WriteLine($"Big Ladder: {BigLadder}");
+
         Console.ReadLine(); 
         
     }
