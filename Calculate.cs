@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Yatzy_korrekt.Enum;
 
 namespace Yatzy_korrekt
 {
@@ -65,15 +66,7 @@ namespace Yatzy_korrekt
                 || HasYatzy(dices, 6);
         }
 
-       public enum NumberOfDices
-        {
-            one,
-            two,
-            three,
-            four,
-            five,
-            six
-        }
+
         public static Dictionary<NumberOfDices, int> HowManyOfEachKind(List<Dice> dieces)
         {
             var DictOfDiceNum = new Dictionary<NumberOfDices, int>

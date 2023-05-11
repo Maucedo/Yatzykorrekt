@@ -17,9 +17,5 @@ namespace Yatzy_korrekt
             this.spara = spara;
         }
 
-        internal static object GroupBy(Func<object, object> p)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
