@@ -1,5 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using Yatzy_korrekt;
@@ -48,14 +47,14 @@ static List<int> TärningsRunda(Random random, List<Dice> tärningar, int slag)
         foreach (Dice y in tärningar)
         {
             Console.WriteLine(y.tärningsnum);
-            // detta gör något
         }
         List<int> tärnspara = new List<int>();
         Console.WriteLine();
         if (slag < 2) //Detta är vad som ska hända ifall man inte slått alla slag än
         {
+         //frågar efter en input av vilka tärningar man ska spara och lägger dessa i tärnspara, samt bestämmer att inputen måste separeras med ett komma tecken ifall det är mer än ett nummer.
             Console.Write("Vad ska sparas? ");
-            tärnspara = Console.ReadLine().Split(",").Select(int.Parse).ToList(); //frågar efter en input av vilka tärningar man ska spara och lägger dessa i tärnspara, samt bestämmer att inputen måste separeras med ett komma tecken ifall det är mer än ett nummer.
+            tärnspara = Console.ReadLine().Split(",").Select(int.Parse).ToList(); 
             //I denna foreach loopen säger vi att varje siffra i tärnspara (vilket är den listan med inputs) så ska vi göra det ekvivalenta elemetet true
             foreach (var t in tärnspara)
             {
@@ -75,7 +74,7 @@ static List<int> TärningsRunda(Random random, List<Dice> tärningar, int slag)
         }
         else //Detta är vad som händer ifall det tredje slaget är färdigt
         {
-            //Skriver ut 1-6 samt hur många av varje tärningsnummer som kom med i resultatet
+            //Hämtar och skriver ut 1-6 samt hur många av varje tärningsnummer som kom med i resultatet
             var DiceNumbers = Calculate.HowManyOfEachKind(tärningar);
             foreach (var item in DiceNumbers)
             {
